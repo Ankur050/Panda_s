@@ -1,0 +1,84 @@
+Pandas has two types of data structures. 
+
+1)	Series- its one-dimensional array with indexes, it store a single column of row data in a data frame
+2)	Data frame- it is a tabular spreadsheet like structure representing rows each of which contains one or multiple columns. 
+  1d array- same type of data 
+2d array- hold different types of pf data. 
+
+------------------------ PANDAS NOTES -----------------
+// IMPORT THE PANDAS AND NUMPY 
+import pandas as pd.
+import NumPy as np
+
+/ Create a dictionary
+
+dict1={"name”: ['ankur','ashish','rohit','raghav'],"marks":[90,80,97,89]
+      ,"city":['Varanasi','Benares','Kashi','Delhi']}
+
+// into a data frame 
+df=pd.DataFrame(dict1)
+
+// for printing data just print the variable name 
+Df
+
+// importing into csv
+
+df.to_csv('marks_friends.csv')
+
+// for removing index like 0,1,2 use index=false.
+
+df.to_csv('marks_friends_noindex.csv',index=False)
+
+// to get the only top 2 or last three values use head and tail functions .
+df.tail(2)
+df.head(2)
+// to get the statistical values but it only valid on numerical values 
+
+df.describe()
+
+it will show s u
+1)count
+2)means
+3)std(standard deviation)
+4)min
+5)25%
+6)50%
+7)75%
+8)max
+
+//// ------  to know the data types of files write 
+Sales.dtypes
+
+
+
+/-------------------------   accessing from your created folder or physically present files ------
+// for reading the file 
+Create a variable and write var=pd.read_csv(“file name .extension”)
+sales=pd.read_csv('SalesData.csv')
+sales // it will show the values. 
+
+// as we know that there are so many entity in a table to access particular rows jus write 
+Var[row]
+Sales[‘revenue’]// to access revenue row.
+
+// to access 0th index of that entity
+Write sales[‘revenues’][0]// to access revenues having index 0;
+
+// to change the value of that index 
+Sales[‘revenue’][0]=900// changing the value to 900
+
+// to see the changes values in csv
+sales.to_csv('SalesData')
+
+// to change the indexing 
+
+sales.index=['one','two','three','fourth']
+
+
+/// new parts begins -----------------
+
+// for executing series 
+
+ser=pd.Series(np.random.rand(22))
+
+//
