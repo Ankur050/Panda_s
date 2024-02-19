@@ -30,8 +30,15 @@ df.to_csv('marks_friends.csv')
 df.to_csv('marks_friends_noindex.csv',index=False)
 
 // to get the only top 2 or last three values use head and tail functions .
-df.tail(2)
-df.head(2)
+TAIL>>> it will the values from bottom 
+df.tail(2)  --- bottom 2 values 
+df.tail(-6)  -- it will left the top 6 values an return after the indexing of 7 to next next
+
+
+HEAD)>>>> it will return the top values 
+df.head(2) return the top 2 
+Notes::>>  By default head return top 5 values 
+df.head(-5)  it will return the all values except the last 8 values 
 // to get the statistical values but it only valid on numerical values 
 
 df.describe()
@@ -46,7 +53,7 @@ it will show s u
 7)75%
 8)max
 
-//// ------  to know the data types of files write 
+//// ------  to know the data types of files write  files.dtypes()
 Sales.dtypes
 
 
@@ -81,4 +88,67 @@ sales.index=['one','two','three','fourth']
 
 ser=pd.Series(np.random.rand(22))
 
-//
+// to get the indexing 
+newdf.index
+
+// to get in the arrays values write ---------- filename.to_numpy()
+newdf.to_numpy()
+// to ttranspose the columns and rows use the function 'T" like rows to column and colum to rows 
+
+newdf.T
+// to accesing the rows in descending orders use 
+newdf.sort_index(axis=1,ascending =False)
+here 
+newdf is the var
+sort_index is the function 
+axis =1 is rows and axis =0 means column
+ascending =False means ascending will not be allowed
+
+
+// to create a view use the variable 
+Notes ::>> but in views if we modify or update some change in the new table than the original one will 
+also be modified 
+newdf2=newdf
+
+// to create the copy of the table 
+Notes::>> it will not change the previous or original table 
+
+newdf2=newdf.copy()
+
+//  LOC function 
+
+newdf.loc[0,0]=76
+newdf.columns=list('ABCDE')
+//to drop the columns use the 
+newdf=newdf.drop('E',axis=1)    we will drop the column E and axis =1 means the column 
+
+
+// to access the specified rows and columns use 
+
+newdf.loc[[1,3],['A','B']]  # for the given rows 
+fetch the values of rows a,b and colmun 1,3
+
+# # for the all columns
+newdf.loc[[1,2],:]
+
+# query like sql for accesing the columns based on conditions 
+
+newdf.loc[newdf['A']<0.8] # return the columns whose values is gretarer than 0.8
+
+## 
+rev=newdf.loc[(newdf['A']<0.3) & (newdf['B']>0.6)]# selecting values whose values are greater 
+#than 0.3 in clumn A and 0.6 in column B 
+# we cant use 'and' in char use & this sign 
+
+
+NOtes """  ----------len(rev) # to count the column
+
+# to use the name for accessing using loc 
+# to use the number for accessing use iloc
+newdf.iloc[0,3]
+
+# as we know to drop the column we have to write the variables like 
+#newdf=newdf.drop([2])
+#but to drop the values without using the new variable use the inplace =TRUE
+# inplace to modify the original tables or datas
+newdf.drop(['A','D'],axis=1,inplace=True)
